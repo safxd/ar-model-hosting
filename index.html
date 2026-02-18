@@ -1,59 +1,54 @@
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-<model-viewer id="reveal"
-              src=“ys6m.glb”
-              ios-src="ys6m.usdz”
-              alt="A test model"
-              ar
-              ar-scale="fixed"
-              camera-controls
-              style="width: 100%; height: 100%"
-			  environment-image="/studio.hdr"
-              >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+
+<model-viewer
+  src="/ys6m.glb"
+  ios-src="/ys6m.usdz"
+  poster="/ys6m.png"
+  alt="A test model"
+
+  ar
+  ar-modes="webxr scene-viewer quick-look"
+  ar-scale="fixed"
+  ar-placement="floor"
+
+  camera-controls
+  touch-action="pan-y"
+
+  environment-image="/studio.hdr"
+  shadow-intensity="1"
+
+>
+
   <button slot="ar-button">
-  <img src=“arlogo.png”
-       ios-src=“arlogo.png”
-       alt="Submit" 
+    <img src="/arlogo.png" alt="Enter AR" width="56">
   </button>
-  <div id="lazy-load-poster" slot="poster"></div>
-  
+
 </model-viewer>
- <style>
-   
-  model-viewer::part(default-progress-bar) {
-     background-color: grey;
-     height: 30px;
-     width: 75%;
-     margin-left: 10vw;
-     margin-top: 35vmax;
-   }
-   
-     model-viewer::part(default-progress-mask) {
-     background-color: black;
-     color: red;
-     height: 30px;
-     width: 75%;
-     margin-left: 10vw;
-     padding-right: 10h;
-     margin-top: 35vmax;
-   }
-   
-   
-   
-     #lazy-load-poster {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-image: url(“ys6m.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    --webkit-filter: blur(4px);
-    filter: blur(4px);
-    
-  }
-   
-</style>
+
+</body>
+</html>
